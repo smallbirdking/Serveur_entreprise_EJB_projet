@@ -34,28 +34,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- to test with TomEE and Arquillian
-    <dependency>
-      <groupId>org.apache.openejb</groupId>
-      <artifactId>arquillian-tomee-remote</artifactId>
-      <version>1.6.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.arquillian.junit</groupId>
-      <artifactId>arquillian-junit-container</artifactId>
-      <version>1.0.3.Final</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    -->
-
-    <!-- to test with OpenEJB embedded and Arquillian
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>arquillian-openejb-embedded-4</artifactId>
@@ -74,7 +52,6 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    -->
   </dependencies>
 
   <build>
@@ -133,6 +110,7 @@
                 </dependency>
             </dependencies>
         </plugin>
+
     </plugins>
   </build>
 
