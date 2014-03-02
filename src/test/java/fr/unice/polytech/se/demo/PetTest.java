@@ -2,6 +2,7 @@ package fr.unice.polytech.se.demo;
 
 import fr.unice.polytech.se.demo.entities.*;
 import junit.framework.TestCase;
+import org.junit.BeforeClass;
 
 import javax.annotation.Resource;
 import javax.ejb.embeddable.EJBContainer;
@@ -26,15 +27,21 @@ public class PetTest extends TestCase {
 	@Resource
 	private UserTransaction transaction;
 
+	private EJBContainer container;
+
 	public void setUp() throws Exception {
 		Properties p = new Properties();
 		p.put("petDatabase", "new://Resource?type=DataSource");
 		p.put("petDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
 		p.put("petDatabase.JdbcUrl", "jdbc:hsqldb:mem:petdb");
 
-		EJBContainer.createEJBContainer(p).getContext().bind("inject", this);
+		container = EJBContainer.createEJBContainer(p);
+		container.getContext().bind("inject", this);
 	}
 
+	public void tearDown() {
+		container.close();
+	}
 
 	public void testAdd() throws Exception {
 		Pet p = new Pet("Jinx");
@@ -78,7 +85,7 @@ public class PetTest extends TestCase {
 			TypedQuery<Pet> query = manager.createQuery(criteria);
 
 			List<Pet> result =  query.getResultList();
-			assertEquals(result.size(),0);
+			assertEquals(result.size(), 0);
 		} finally {
 			transaction.commit();
 		}
