@@ -1,28 +1,38 @@
 package fr.unice.polytech.se.demo.entities;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
-@Table(name="PET")
-public class Pet {
+@Table(name = "PET")
+public class Pet implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long id;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "PET_NAME")
-	@NotNull
-	public String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
 
-	public Pet() {}
+    @Column(name = "PET_NAME")
+    @NotNull
+    public String name;
 
-	public Pet(String n) {
-		this.name = n;
-	}
+    public Pet() {
+    }
 
-	public String toString(){
-		return "Pet[" + this.id + "]#" + this.name;
-	}
+    public Pet(String n) {
+        this.name = n;
+    }
+
+    public String toString() {
+        return "Pet[" + this.id + "]#" + this.name;
+    }
+
 }
