@@ -22,6 +22,8 @@
     <persistence-unit name="Pet-pu" transaction-type="JTA">
         <jta-data-source>PetDatabase</jta-data-source>
         <class>fr.unice.polytech.se.demo.entities.Pet</class>
+        <class>fr.unice.polytech.se.demo.entities.PetCard</class>
+        <class>fr.unice.polytech.se.demo.entities.PetSeller</class>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
         </properties>
