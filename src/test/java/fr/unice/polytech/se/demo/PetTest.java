@@ -39,7 +39,7 @@ public class PetTest {
 		p.put("petDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
 		p.put("petDatabase.JdbcUrl", "jdbc:hsqldb:mem:petdb");
 
-		container = EJBContainer.createEJBContainer();
+		container = EJBContainer.createEJBContainer(p);
 		container.getContext().bind("inject", this);
 	}
 
