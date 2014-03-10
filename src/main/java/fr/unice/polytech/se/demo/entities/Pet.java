@@ -35,4 +35,12 @@ public class Pet implements Serializable {
         return "Pet[" + this.id + "]#" + this.name;
     }
 
+	public boolean equals(Object o) {
+		if (o instanceof Pet) {
+			Pet that = (Pet) o;
+			return that.name.equals(this.name);
+		}
+		return false;
+	}
+
 }

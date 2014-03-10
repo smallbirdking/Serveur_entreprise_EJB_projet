@@ -24,7 +24,7 @@
     <configuration>
       <property name="properties">
         my-datasource = new://Resource?type=DataSource
-        my-datasource.JdbcUrl = jdbc:hsqldb:mem:data/hsqldb/petsource
+        my-datasource.JdbcUrl = jdbc:hsqldb:mem:data/hsqldb/petsource;shutdown=true
         my-datasource.UserName = sa
         my-datasource.Password =
       </property>
