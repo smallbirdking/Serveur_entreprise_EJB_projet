@@ -29,6 +29,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>2.1.8</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>2.1.8</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.openejb</groupId>
 			<artifactId>arquillian-openejb-embedded-4</artifactId>
 			<version>4.6.0</version>
@@ -49,6 +62,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>demo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -62,7 +76,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.16</version>
+				<version>2.17</version>
 				<configuration>
 					<forkMode>always</forkMode>
 				</configuration>
@@ -81,6 +95,7 @@
 				<version>1.6.0</version>
 				<configuration>
 					<context>ROOT</context>
+					<deployOpenEjbApplication>true</deployOpenEjbApplication>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -113,6 +128,42 @@
 			</plugin>
 
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.openjpa
+										</groupId>
+										<artifactId>
+											openjpa-maven-plugin
+										</artifactId>
+										<versionRange>
+											[2.2.0,)
+										</versionRange>
+										<goals>
+											<goal>enhance</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<repositories>

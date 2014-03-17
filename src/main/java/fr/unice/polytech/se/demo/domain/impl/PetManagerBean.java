@@ -1,18 +1,15 @@
 package fr.unice.polytech.se.demo.domain.impl;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import fr.unice.polytech.se.demo.domain.PetFinder;
 import fr.unice.polytech.se.demo.domain.PetManager;
 import fr.unice.polytech.se.demo.entities.Pet;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 
 /**
  * demo

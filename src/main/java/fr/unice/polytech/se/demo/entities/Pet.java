@@ -35,6 +35,14 @@ public class Pet implements Serializable {
         return "Pet[" + this.id + "]#" + this.name;
     }
 
+    public Long getId() {
+		return id;
+	}
+    
+    public String getName() {
+		return name;
+	}
+    
 	public boolean equals(Object o) {
 		if (o instanceof Pet) {
 			Pet that = (Pet) o;

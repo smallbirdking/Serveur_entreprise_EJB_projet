@@ -1,5 +1,7 @@
 package fr.unice.polytech.se.demo.domain.impl;
 
+import java.util.List;
+
 import fr.unice.polytech.se.demo.domain.PetFinder;
 import fr.unice.polytech.se.demo.entities.Pet;
 
@@ -35,4 +37,14 @@ public class PetFinderBean implements PetFinder {
 			return null;
 		}
 	}
+	
+	@Override
+	public List<Pet> findAll() {
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pet> cq = cb.createQuery(Pet.class);
+        TypedQuery<Pet> allQuery = entityManager.createQuery(cq.select(cq.from(Pet.class)));
+        
+        return allQuery.getResultList();
+	}
+	
 }
