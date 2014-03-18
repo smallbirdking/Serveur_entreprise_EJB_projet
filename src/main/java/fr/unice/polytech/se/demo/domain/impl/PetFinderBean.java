@@ -14,8 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- * demo
- * mosser (10/03/2014, 23:07)
+ * demo mosser (10/03/2014, 23:07)
  */
 @Stateless
 public class PetFinderBean implements PetFinder {
@@ -37,14 +36,35 @@ public class PetFinderBean implements PetFinder {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public List<Pet> findAll() {
 		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pet> cq = cb.createQuery(Pet.class);
-        TypedQuery<Pet> allQuery = entityManager.createQuery(cq.select(cq.from(Pet.class)));
-        
-        return allQuery.getResultList();
+		CriteriaQuery<Pet> cq = cb.createQuery(Pet.class);
+		TypedQuery<Pet> allQuery = entityManager.createQuery(cq.select(cq
+				.from(Pet.class)));
+
+		return allQuery.getResultList();
 	}
-	
+
+	@Override
+	public List<Pet> findLast(int n, int startIndex) {
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Pet> criteria = builder.createQuery(Pet.class);
+
+		Root<Pet> from = criteria.from(Pet.class);
+		criteria.select(from);
+		criteria.orderBy(builder.desc(from.get("id")));
+
+		TypedQuery<Pet> query = entityManager.createQuery(criteria);
+		query.setFirstResult(startIndex);
+		query.setMaxResults(n);
+
+		try {
+			return query.getResultList();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 }

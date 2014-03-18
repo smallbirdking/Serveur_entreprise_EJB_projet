@@ -14,4 +14,6 @@ public interface PetFinder {
 
 	public List<Pet> findAll();
 	
+	public List<Pet> findLast(int n, int startIndex);
+	
 }
