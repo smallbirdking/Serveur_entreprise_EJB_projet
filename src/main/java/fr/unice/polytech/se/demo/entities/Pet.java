@@ -14,41 +14,49 @@ import javax.validation.constraints.NotNull;
 @Table(name = "PET")
 public class Pet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
+	public Long id;
 
-    @Column(name = "PET_NAME")
-    @NotNull
-    public String name;
+	public String name;
 
-    public Pet() {
-    }
+	public Pet() {
+	}
 
-    public Pet(String n) {
-        this.name = n;
-    }
+	public Pet(String n) {
+		this.name = n;
+	}
 
-    public String toString() {
-        return "Pet[" + this.id + "]#" + this.name;
-    }
+	public String toString() {
+		return "Pet[" + this.id + "]#" + this.name;
+	}
 
-    public Long getId() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
 		return id;
 	}
-    
-    public String getName() {
+
+	@Column(name = "PET_NAME")
+	@NotNull
+	public String getName() {
 		return name;
 	}
-    
+
 	public boolean equals(Object o) {
 		if (o instanceof Pet) {
 			Pet that = (Pet) o;
 			return that.name.equals(this.name);
 		}
 		return false;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

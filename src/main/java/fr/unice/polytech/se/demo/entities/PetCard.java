@@ -18,40 +18,84 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class PetCard implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
+	private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PetSeller petSeller;
+	private PetSeller petSeller;
 
-    @OneToOne
-    public Pet pet;
+	private Pet pet;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationTime = new Date();
+	private Date creationTime = new Date();
 
-    @NotNull
-    public BigDecimal price;
+	private BigDecimal price;
 
-    @NotNull
-    public String description;
+	private String description;
 
-    public PetCard() {
+	public PetCard() {
 
-    }
+	}
 
-    public PetCard(Pet pet, BigDecimal price, String description) {
-        super();
-        this.pet = pet;
-        this.price = price;
-        this.description = description;
-    }
+	public PetCard(Pet pet, BigDecimal price, String description) {
+		super();
+		this.pet = pet;
+		this.price = price;
+		this.description = description;
+	}
 
-    public void setPetSeller(PetSeller petSeller) {
-        this.petSeller = petSeller;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	public PetSeller getPetSeller() {
+		return petSeller;
+	}
+
+	@OneToOne
+	public Pet getPet() {
+		return pet;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getCreationTime() {
+		return creationTime;
+	}
+
+	@NotNull
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	@NotNull
+	public String getDescription() {
+		return description;
+	}
+
+	public void setPetSeller(PetSeller petSeller) {
+		this.petSeller = petSeller;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 }
