@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form role="form">
+			<div class="form-group">
+				<label for="name">Pet name</label>
+				<h:inputText styleClass="form-control" id="name"
+					value='#{petSellerJsfBean.petName}' />
+				<h:outputText value="#{petSellerJsfBean.errorMessage}"
+					render="#{petSellerJsfBean.errorMessage != null}" style="color:red" />
+			</div>
+			<h:commandButton action="#{petSellerJsfBean.add}"
+				styleClass="btn btn-primary" value="Add Pet" />
+		</h:form>
+		<br />
+		<h:dataTable value="#{petSellerJsfBean.pets}" var="p"
+			styleClass="table table-striped">
+
+			<h:column>
+				<!-- column header -->
+				<f:facet name="header">ID</f:facet>
+				<!-- row record -->
+    				#{p.id}
+    			</h:column>
+
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+    				#{p.name}
+    			</h:column>
+		</h:dataTable>
+		<div>
+			<a href="?start=#{petSellerJsfBean.previousPaginationIndex}">Previous</a> - <a href="?start=#{petSellerJsfBean.nextPaginationIndex}">Next</a>
+		</div>
+	</ui:define>
+</ui:composition>

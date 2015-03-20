@@ -1,0 +1,10 @@
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/impl/PetManagerBean.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/PetFinder.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/presentation/PetSellerJsfBean.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/impl/PetFinderBean.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/entities/Pet.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/impl/PetCartBean.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/entities/PetSeller.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/PetManager.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/domain/PetCart.java
+/home/ding/Documents/TCF/se-demo/src/main/java/fr/unice/polytech/se/demo/entities/PetCard.java
