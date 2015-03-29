@@ -36,7 +36,7 @@ public class Ingredient implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_INGREDIENT",length = 10)
+    @Column(name = "ID_INGREDIENT",length = 32)
     public Long getId() {
         return id;
     }

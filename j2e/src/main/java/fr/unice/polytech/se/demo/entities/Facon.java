@@ -10,7 +10,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "Facon")
+@Table(name = "FACON")
 public class Facon implements Serializable{
     private static final long serialVersionUID = 1L;
 
@@ -31,12 +31,12 @@ public class Facon implements Serializable{
     }
 
     public String toString(){
-        return "Facon[" + this.id + "]#" + this.nom_Facon + ", t: " + this.temps_Utilise;
+        return "FACON[" + this.id + "]#" + this.nom_Facon + ", t: " + this.temps_Utilise;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_FACON",length = 10)
+    @Column(name = "ID_FACON",length = 32)
     public Long getId() {
         return id;
     }
@@ -63,8 +63,8 @@ public class Facon implements Serializable{
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @AssociationTable(table = @Table(name = "FACON_RECETTE"),
-            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID")})
+            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID_FACON")})
     public Set<Recette> getRecettes(){
         return recettes;
     }
