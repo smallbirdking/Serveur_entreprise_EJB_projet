@@ -1,7 +1,77 @@
 package fr.unice.polytech.se.demo.entities;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Set;
+
 /**
  * Created by ding on 22/03/15.
  */
-public class Facon {
+
+@Entity
+@Table(name = "Facon")
+public class Facon implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+    private Long id;
+
+    private String nom_Facon;
+
+    private double temps_Utilise;
+
+    private Set<Recette> recettes;
+
+    public Facon(){
+    }
+
+    public Facon(String n, double t){
+        this.nom_Facon = n;
+        this.temps_Utilise = t;
+    }
+
+    public String toString(){
+        return "Facon[" + this.id + "]#" + this.nom_Facon + ", t: " + this.temps_Utilise;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_FACON",length = 10)
+    public Long getId() {
+        return id;
+    }
+
+    @Column(name = "NOM_FACON", length = 32)
+    @NotNull
+    public String getNom_Facon() {
+        return nom_Facon;
+    }
+
+    public void setNom_Facon(String n){
+        nom_Facon = n;
+    }
+
+    @Column(name = "TEMPS_UTILISE", length = 10)
+    @NotNull
+    public double getTemps_Utilise() {
+        return temps_Utilise;
+    }
+
+    public void setTemps_Utilise(double t){
+        temps_Utilise = t;
+    }
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @AssociationTable(table = @Table(name = "FACON_RECETTE"),
+            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID")})
+    public Set<Recette> getRecettes(){
+        return recettes;
+    }
+
+    public void setRecettes(Set<Recette> r){
+        recettes = r;
+    }
+
+
 }
