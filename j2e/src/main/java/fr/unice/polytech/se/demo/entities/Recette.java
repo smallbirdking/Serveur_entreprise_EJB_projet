@@ -3,7 +3,6 @@ package fr.unice.polytech.se.demo.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 /** * Created on 21/03/15. */
@@ -12,72 +11,134 @@ import java.util.Set;
 public class Recette implements Serializable{
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String name_Recette;
-    private Set<Ingredient> ingredients = new HashSet<Ingredient>();
-    private Set<Facon> facon = new HashSet<Facon>();
+    private String nom_recette;
+    private Set<Ingredient> ingredients;
+    private Set<Facon> facons;
+    private Set<Preference> preferences;
     private double temps_Utiliser;
-    private double prix_Recette;
-    private Commande commande; //Pour une recette spéciale
+    private double prix_recette;
+    private Set<Commande> commandes;
+    private Set<Boutique> boutiques;
 
-    Recette(String special,double taxe) {
-        name = special;
-        this.taxe = taxe;
-    } //Pour une rectte standard
-
-    Recette(double taxe) {
-        this.taxe = taxe;
-    }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Column(name = "NAME")
-    @NotNull
-    public String getName() {
-        return name;
-    }
-
-    @Column(name = "TOTALHT")
-    @NotNull
-    public double getTotalHT() {
-        return totalHT;
-    }
-
-    @OneToMany(mappedBy = "recette")
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    public Commande getCommande(){
-        return commande;
-    }
-
-    public void addIngredient(Ingredient i) {
-        ingredients.add(i);
-    }
-
-    public void removeIngredient(Ingredient i2) {
-        ingredients.remove(i2);
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    Recette(String n,double p) {
+        this.nom_recette = n;
+        this.prix_recette = p;
     }
 
     public String toString() {
-        String toSend = "Recette[" + this.id + "]"+"\n"; toSend += ingredients.toString();
-        return toSend;
+        String msg = "RECETTE[" + this.id + "]#";
+        msg += "nom: " + this.nom_recette + ", ";
+        msg += "temp_utilise: " + this.temps_Utiliser + ", ";
+        msg += "prix_recette: " + this.prix_recette;
+        return msg;
     }
 
-    public boolean equals(Object o) {
-        if (o instanceof Recette) {
-            Recette that = (Recette) o;
-            return (that.ingredients.equals(this.ingredients));
-        }
-        return false;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_RECETTE",length = 32)
+    public Long getId() {
+        return id;
     }
+
+    @Column(name = "NOM_RECETTE", length = 32)
+    @NotNull
+    public String getNom_recette(){
+        return nom_recette;
+    }
+
+    public void setNom_recette(String nr){
+        nom_recette = nr;
+    }
+
+    @Column(name = "TEMPS_UTILISER",length = 32)
+    @NotNull
+    public double getTemps_Utiliser(){
+        return temps_Utiliser;
+    }
+
+    public void setTemps_Utiliser(double tu){
+        temps_Utiliser = tu;
+    }
+
+    @Column(name = "PRIX_RECETTE", length = 32)
+    @NotNull
+    public double getPrix_recette(){
+        return prix_recette;
+    }
+
+    public void setPrix_recette(double pr){
+        prix_recette = pr;
+    }
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @AssociationTable(table = @Table(name = "PREFERENCE_RECETTE"),
+            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_PREFERENCE",referencedColumnName="ID_PREFERENCE")})
+    public Set<Preference> getPreferences(){
+        return preferences;
+    }
+
+    public void setPreferences(Set<Preference> p){
+        preferences = p;
+    }
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @AssociationTable(table = @Table(name = "FACON_RECETTE"),
+            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID_FACON")})
+    public Set<Facon> getFacons(){
+        return facons;
+    }
+
+    public void setFacons(Set<Facon> f){
+        facons = f;
+    }
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @AssociationTable(table = @Table(name = "INGREDIENT_RECETTE"),
+            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_INGREDIENT",referencedColumnName="ID_INGREDIENT")})
+    public Set<Ingredient> getIngredients(){
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> i){
+        ingredients = i;
+    }
+
+    @OneToMany(mappedBy="recette",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    public Set<Commande> getCommandes(){
+        return commandes;
+    }
+
+    public void setCommandes(Set<Commande> c){
+        commandes = c;
+    }
+
+    public void addCommande(Commande c){
+
+    }
+
+    public void removeCommande(Commande c){
+
+    }
+
+    @OneToMany(mappedBy="recette",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    public Set<Boutique> getBoutiques(){
+        return boutiques;
+    }
+
+    public void setBoutiques(Set<Boutique> b){
+        boutiques = b;
+    }
+
+    public void addBoutique(Boutique b){
+
+    }
+
+    public void removeBoutique(Boutique b){
+
+    }
+
+
 }

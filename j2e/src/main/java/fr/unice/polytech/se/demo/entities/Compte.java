@@ -60,6 +60,7 @@ public class Compte implements Serializable {
     }
 
     @Column(name = "CODE", length = 32)
+    @NotNull
     public String getCode(){
         return code;
     }

@@ -2,6 +2,7 @@ package fr.unice.polytech.se.demo.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by ding on 22/03/15.
@@ -19,11 +20,17 @@ public class Preference implements Serializable{
 
     private InfoPayment infoPayment;
 
+    private Set<Recette> recettes;
+
+    private Set<Boutique> boutiques;
+
     public Preference(){}
 
-    public Preference(Compte c, InfoPayment p){
-        this.compte = c;
-        this.infoPayment = p;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_PREFERENCE",length = 32)
+    public Long getId() {
+        return id;
     }
 
     @OneToOne(cascade = {CascadeType.ALL})
@@ -44,5 +51,27 @@ public class Preference implements Serializable{
 
     public void setInfoPayment(InfoPayment p){
         infoPayment = p;
+    }
+
+    @ManyToMany(mappedBy = "peferences")
+    public Set<Recette> getRecettes(){
+        return recettes;
+    }
+
+    public void setRecettes(Set<Recette> r){
+        recettes = r;
+    }
+
+    public String toString(){
+        return "PREFERENCE[" + this.id + "]# compte: " + this.compte.toString() + "\ninfopayment: " + this.infoPayment.toString();
+    }
+
+    @ManyToMany(mappedBy = "peferences")
+    public Set<Boutique> getBoutiques(){
+        return boutiques;
+    }
+
+    public void setBoutiques(Set<Boutique> b){
+        boutiques = b;
     }
 }

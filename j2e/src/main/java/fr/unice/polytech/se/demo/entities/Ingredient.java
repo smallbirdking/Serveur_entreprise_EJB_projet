@@ -61,10 +61,7 @@ public class Ingredient implements Serializable{
         prix_Ingredient = p;
     }
 
-    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "INGREDIENT_RECETTE"),
-            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_INGREDIENT",referencedColumnName="ID_INGREDIENT")})
+    @ManyToMany(mappedBy = "ingredients")
     public Set<Recette> getRecettes(){
         return recettes;
     }

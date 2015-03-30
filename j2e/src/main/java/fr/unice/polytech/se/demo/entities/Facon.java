@@ -61,10 +61,7 @@ public class Facon implements Serializable{
         temps_Utilise = t;
     }
 
-    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "FACON_RECETTE"),
-            joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID_FACON")})
+    @ManyToMany(mappedBy = "facons")
     public Set<Recette> getRecettes(){
         return recettes;
     }

@@ -1,9 +1,9 @@
 package fr.unice.polytech.se.demo.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by ding on 22/03/15.
@@ -11,14 +11,88 @@ import java.io.Serializable;
 @Entity
 @Table(name = "COMMANDE")
 public class Commande implements Serializable {
-    private String id_Commande;
+    private static final long serialVersionUID = 1L;
+    private Long id;
+
+    private Date date;
+
+    private Integer quantite;
+
+    private Recette recette;
+
+    private Boutique boutique;
+
+    private InfoPayment infoPayment;
+
+    public Commande(Date date, Integer quantite){
+        this.date = date;
+        this.quantite = quantite;
+    }
 
     @Id
-    public String getId_Commande() {
-        return id_Commande;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_COMMANDE",length = 32)
+    public Long getId() {
+        return id;
     }
 
-    public void setId_Commande(String id_Commande) {
-        this.id_Commande = id_Commande;
+    public String toString(){
+        return "COMMANDE[" + this.id + "]# Date" + this.date.toString() + ", quantite: " + this.quantite;
     }
+
+    @Column(name = "DATE")
+    @NotNull
+    public Date getDate(){
+        return date;
+    }
+
+    public void setDate(Date d){
+        date = d;
+    }
+
+    @Column(name = "QUANTITE", length = 10)
+    @NotNull
+    public Integer getQuantite(){
+        return quantite;
+    }
+
+    public void setQuantite(Integer q){
+        quantite = q;
+    }
+
+    @ManyToOne(cascade=CascadeType.ALL,optional=false)
+    @JoinColumn(name="ID_RECETTE")
+    public Recette getRecette(){
+        return recette;
+    }
+
+    public void setRecette(Recette r){
+        recette = r;
+    }
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "ID_INFOPAYMENT")
+    public InfoPayment getInfoPayment(){
+        return infoPayment;
+    }
+
+    public void setInfoPayment(InfoPayment i){
+        infoPayment = i;
+    }
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "ID_BOUTIQUE")
+    public Boutique getBoutique(){
+        return boutique;
+    }
+
+    public void setBoutique(Boutique b){
+        boutique = b;
+    }
+
+
+
+
+
+
 }
