@@ -2,6 +2,7 @@ package fr.unice.polytech.se.demo.domain;
 
 import fr.unice.polytech.se.demo.entities.Commande;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,9 +10,15 @@ import java.util.List;
  */
 public interface CommandeFinder {
 
-    public Commande findByName(String n);
+    public Commande findById(int n);
+
+    public List<Commande> findByDate(Date d);
+
+    public List<Commande> findByQuantite(int q);
+
+    public List<Commande> findByIdBoutique(int b);
 
     public List<Commande> findAll();
 
-    public List<Commande> findLast(int n, int startIndex);
+    //public List<Commande> findLast(int n, int startIndex);
 }

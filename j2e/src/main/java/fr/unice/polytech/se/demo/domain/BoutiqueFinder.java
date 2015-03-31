@@ -9,9 +9,14 @@ import java.util.List;
  */
 public interface BoutiqueFinder {
 
-    public Boutique findByName(String n);
+    //public Boutique findByName(String n);
+
+    public Boutique findById(int n);
+
+    public Boutique findByAddresse(String add);
+
+    public Boutique findByChiffreVente(int n);
 
     public List<Boutique> findAll();
 
-    public List<Boutique> findLast(int n, int startIndex);
 }
