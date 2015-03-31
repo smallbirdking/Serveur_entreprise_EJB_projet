@@ -8,5 +8,5 @@ import fr.unice.polytech.se.demo.entities.Ingredient;
 public interface IngredientManager {
     public Ingredient create(String name, double t);
 
-    public Ingredient deleteIngredient(String name );
+    public Ingredient deleteIngredient(String n);
 }

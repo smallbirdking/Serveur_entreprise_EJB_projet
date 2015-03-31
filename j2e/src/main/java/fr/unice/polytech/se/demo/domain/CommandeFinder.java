@@ -10,13 +10,13 @@ import java.util.List;
  */
 public interface CommandeFinder {
 
-    public Commande findById(int n);
+    public Commande findById(long n);
 
     public List<Commande> findByDate(Date d);
 
     public List<Commande> findByQuantite(int q);
 
-    public List<Commande> findByIdBoutique(int b);
+    public List<Commande> findByIdBoutique(long b);
 
     public List<Commande> findAll();
 

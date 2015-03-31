@@ -10,9 +10,9 @@ import java.util.List;
 public interface IngredientFinder {
     public Ingredient findByName(String n);
 
-    public Ingredient findByPrix(int n);
+    public Ingredient findByPrix(double n);
 
-    public Ingredient findById(int n);
+    public Ingredient findById(long n);
 
     public List<Ingredient> findAll();
 

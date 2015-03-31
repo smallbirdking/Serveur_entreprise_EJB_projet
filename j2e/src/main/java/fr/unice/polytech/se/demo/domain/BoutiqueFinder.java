@@ -13,7 +13,7 @@ public interface BoutiqueFinder {
 
     public Boutique findById(int n);
 
-    public Boutique findByAddresse(String add);
+    public Boutique findByAddresse(String addresseBoutique);
 
     public Boutique findByChiffreVente(int n);
 
