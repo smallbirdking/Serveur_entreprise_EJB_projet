@@ -7,4 +7,5 @@ import fr.unice.polytech.se.demo.entities.Compte;
  */
 public interface CompteManager {
     public Compte create(String name);
+
 }
