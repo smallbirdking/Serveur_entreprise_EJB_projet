@@ -53,7 +53,7 @@ public class Preference implements Serializable{
         infoPayment = p;
     }
 
-    @ManyToMany(mappedBy = "peferences")
+    @ManyToMany(mappedBy = "preferences")
     public Set<Recette> getRecettes(){
         return recettes;
     }
@@ -66,7 +66,7 @@ public class Preference implements Serializable{
         return "PREFERENCE[" + this.id + "]# compte: " + this.compte.toString() + "\ninfopayment: " + this.infoPayment.toString();
     }
 
-    @ManyToMany(mappedBy = "peferences")
+    @ManyToMany(mappedBy = "preferences")
     public Set<Boutique> getBoutiques(){
         return boutiques;
     }
@@ -74,4 +74,5 @@ public class Preference implements Serializable{
     public void setBoutiques(Set<Boutique> b){
         boutiques = b;
     }
+
 }

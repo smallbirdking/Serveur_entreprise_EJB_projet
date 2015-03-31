@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ejb-3.0-edr2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/ejb-3.0-edr2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
