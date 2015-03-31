@@ -20,7 +20,11 @@ public class Recette implements Serializable{
     private Set<Commande> commandes;
     private Set<Boutique> boutiques;
 
-    Recette(String n,double p) {
+    public Recette(){
+
+    }
+
+    public Recette(String n,double p) {
         this.nom_recette = n;
         this.prix_recette = p;
     }
@@ -116,14 +120,14 @@ public class Recette implements Serializable{
     }
 
     public void addCommande(Commande c){
-
+        commandes.add(c);
     }
 
     public void removeCommande(Commande c){
-
+        commandes.remove(c);
     }
 
-    @OneToMany(mappedBy="recette",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="recette_du_jour",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     public Set<Boutique> getBoutiques(){
         return boutiques;
     }
@@ -133,11 +137,11 @@ public class Recette implements Serializable{
     }
 
     public void addBoutique(Boutique b){
-
+        boutiques.add(b);
     }
 
     public void removeBoutique(Boutique b){
-
+        boutiques.remove(b);
     }
 
 

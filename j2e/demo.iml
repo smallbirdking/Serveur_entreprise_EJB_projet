@@ -121,5 +121,17 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-impl-base:1.1.3.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/annotations-5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
+    <orderEntry type="library" name="ejb-3.0-edr2" level="project" />
   </component>
 </module>

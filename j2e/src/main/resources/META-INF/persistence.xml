@@ -24,14 +24,13 @@
         <class>fr.unice.polytech.se.demo.entities.Pet</class>
         <class>fr.unice.polytech.se.demo.entities.PetCard</class>
         <class>fr.unice.polytech.se.demo.entities.PetSeller</class>
-        <class>fr.unice.polytech.se.demo.entities.Recette</class>
-        <class>fr.unice.polytech.se.demo.entities.Boutique</class>
-        <class>fr.unice.polytech.se.demo.entities.Commande</class>
-        <class>fr.unice.polytech.se.demo.entities.Compte</class>
         <class>fr.unice.polytech.se.demo.entities.Facon</class>
-        <class>fr.unice.polytech.se.demo.entities.InfoPayment</class>
         <class>fr.unice.polytech.se.demo.entities.Ingredient</class>
+        <class>fr.unice.polytech.se.demo.entities.InfoPayment</class>
         <class>fr.unice.polytech.se.demo.entities.Preference</class>
+        <class>fr.unice.polytech.se.demo.entities.Commande</class>
+        <class>fr.unice.polytech.se.demo.entities.Boutique</class>
+        <class>fr.unice.polytech.se.demo.entities.Recette</class>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>

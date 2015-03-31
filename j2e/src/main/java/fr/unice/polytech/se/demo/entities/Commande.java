@@ -24,6 +24,10 @@ public class Commande implements Serializable {
 
     private InfoPayment infoPayment;
 
+    public Commande(){
+
+    }
+
     public Commande(Date date, Integer quantite){
         this.date = date;
         this.quantite = quantite;
