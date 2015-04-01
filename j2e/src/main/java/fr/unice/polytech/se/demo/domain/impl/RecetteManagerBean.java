@@ -32,8 +32,8 @@ public class RecetteManagerBean implements RecetteManager {
     }
 
     @Override
-    public Recette create(String n, double p) {
-        Recette c = new Recette(n, p);
+    public Recette create(String n, double p,double temps_Utiliser) {
+        Recette c = new Recette(n, p, temps_Utiliser);
         entityManager.persist(c);
         return c;
     }

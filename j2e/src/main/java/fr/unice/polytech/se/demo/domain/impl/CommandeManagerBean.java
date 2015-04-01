@@ -26,18 +26,18 @@ public class CommandeManagerBean implements CommandeManager {
     CommandeFinder finder;
 
     @Override
-    public Commande create(Date date, Integer quantite) {
-        Commande c = new Commande(date, quantite);
-        Recette recette=new Recette("Coco",10);
-        c.setRecette(recette);
+    public Commande create(Recette recette,Date date, Integer quantite) {
+        Commande c = new Commande(recette,date, quantite);
+        //Recette recette=new Recette("Coco",10,10);
+        //c.setRecette(recette);
         entityManager.persist(c);
         return c;
     }
 
     @Override
-    public void addRecette(String recette, double taxe, long id) {
+    public void addRecette(String recette, double taxe, double p,long id) {
         Commande toUpdate = finder.findById(id);
-        Recette r = new Recette(recette,taxe);
+        Recette r = new Recette(recette,taxe,p);
         //oUpdate.setRecette(r);
     }
 

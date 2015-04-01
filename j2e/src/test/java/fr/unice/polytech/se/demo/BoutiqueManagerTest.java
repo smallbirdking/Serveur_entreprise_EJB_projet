@@ -49,7 +49,7 @@ public class BoutiqueManagerTest {
         // Boutique boutique = manager.create("Polytech",new Date(1000),new Date(2000),100);
 
 
-        Recette recette =managerR.create("Chocolect", 10);
+        Recette recette =managerR.create("Chocolect", 10,10);
 
        // Recette r=new Recette("Chocolect", 10);
 

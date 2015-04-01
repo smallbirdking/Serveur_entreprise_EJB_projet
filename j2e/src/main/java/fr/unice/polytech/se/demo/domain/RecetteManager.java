@@ -8,7 +8,7 @@ import fr.unice.polytech.se.demo.entities.Recette;
 public interface RecetteManager {
     public Recette create();
 
-    public Recette create(String n,double p);
+    public Recette create(String n,double p,double temps_Utiliser);
 
     Recette addIngredientToRecette(String ingredient, String recette);
 

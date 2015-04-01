@@ -28,7 +28,8 @@ public class Commande implements Serializable {
 
     }
 
-    public Commande(Date date, Integer quantite){
+    public Commande(Recette recette,Date date, Integer quantite){
+        this.recette=recette;
         this.date = date;
         this.quantite = quantite;
     }

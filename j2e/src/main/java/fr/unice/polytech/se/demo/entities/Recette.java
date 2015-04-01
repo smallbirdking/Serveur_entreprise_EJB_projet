@@ -17,16 +17,17 @@ public class Recette implements Serializable{
     private Set<Preference> preferences;
     private double temps_Utiliser;
     private double prix_recette;
-   // private Set<Commande> commandes;
+    private Set<Commande> commandes;
     private Set<Boutique> boutiques;
 
     public Recette(){
 
     }
 
-    public Recette(String n,double p) {
+    public Recette(String n,double p, double temps_Utiliser) {
         this.nom_recette = n;
         this.prix_recette = p;
+        this.temps_Utiliser = temps_Utiliser;
     }
 
     public String toString() {
@@ -114,7 +115,7 @@ public class Recette implements Serializable{
         ingredients = i;
     }
 
-    /*
+
     @OneToMany(mappedBy="recette",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     public Set<Commande> getCommandes(){
         return commandes;
@@ -131,7 +132,8 @@ public class Recette implements Serializable{
     public void removeCommande(Commande c){
         commandes.remove(c);
     }
-    */
+
+
 
     @OneToMany(mappedBy="recette_du_jour",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     public Set<Boutique> getBoutiques(){

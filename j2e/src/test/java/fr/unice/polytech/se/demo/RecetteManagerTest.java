@@ -42,7 +42,7 @@ public class RecetteManagerTest {
     @Test
     public void testCreation()  {
         // Boutique boutique = manager.create("Polytech",new Date(1000),new Date(2000),100);
-        Recette Recette=manager.create("Chocolect", 10);
+        Recette Recette=manager.create("Chocolect", 10,10);
         //assertEquals(Commande.getAddresseBoutique(), "Polytech");
         //Commande found = finder.findAll().get(0);
         //assertEquals(found.getId(), commande.getId());
