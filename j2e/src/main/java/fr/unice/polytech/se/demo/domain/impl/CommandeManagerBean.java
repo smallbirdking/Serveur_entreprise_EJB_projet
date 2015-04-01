@@ -28,6 +28,8 @@ public class CommandeManagerBean implements CommandeManager {
     @Override
     public Commande create(Date date, Integer quantite) {
         Commande c = new Commande(date, quantite);
+        Recette recette=new Recette("Coco",10);
+        c.setRecette(recette);
         entityManager.persist(c);
         return c;
     }
@@ -36,12 +38,14 @@ public class CommandeManagerBean implements CommandeManager {
     public void addRecette(String recette, double taxe, long id) {
         Commande toUpdate = finder.findById(id);
         Recette r = new Recette(recette,taxe);
-       // toUpdate.addRecette(r);
+        //oUpdate.setRecette(r);
     }
 
     @Override
     public Commande create() {
-        return null;
+        Commande c = new Commande();
+        entityManager.persist(c);
+        return c;
     }
 
     @PostConstruct

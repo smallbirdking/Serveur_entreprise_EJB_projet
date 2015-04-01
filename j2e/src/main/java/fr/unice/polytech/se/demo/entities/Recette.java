@@ -17,7 +17,7 @@ public class Recette implements Serializable{
     private Set<Preference> preferences;
     private double temps_Utiliser;
     private double prix_recette;
-    private Set<Commande> commandes;
+   // private Set<Commande> commandes;
     private Set<Boutique> boutiques;
 
     public Recette(){
@@ -39,9 +39,13 @@ public class Recette implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_RECETTE",length = 32)
+    //@Column(name = "ID_RECETTE",length = 32)
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     @Column(name = "NOM_RECETTE", length = 32)
@@ -75,9 +79,9 @@ public class Recette implements Serializable{
     }
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "PREFERENCE_RECETTE"),
+   /* @AssociationTable(table = @Table(name = "PREFERENCE_RECETTE"),
             joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_PREFERENCE",referencedColumnName="ID_PREFERENCE")})
+            inverseJoinColumns = {@JoinColumn(name = "ID_PREFERENCE",referencedColumnName="ID_PREFERENCE")})*/
     public Set<Preference> getPreferences(){
         return preferences;
     }
@@ -87,9 +91,9 @@ public class Recette implements Serializable{
     }
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "FACON_RECETTE"),
+    /*@AssociationTable(table = @Table(name = "FACON_RECETTE"),
             joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID_FACON")})
+            inverseJoinColumns = {@JoinColumn(name = "ID_FACON",referencedColumnName="ID_FACON")})*/
     public Set<Facon> getFacons(){
         return facons;
     }
@@ -99,9 +103,9 @@ public class Recette implements Serializable{
     }
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "INGREDIENT_RECETTE"),
+    /*@AssociationTable(table = @Table(name = "INGREDIENT_RECETTE"),
             joinColumns = {@JoinColumn(name = "ID_RECETTE",referencedColumnName="ID_RECETTE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_INGREDIENT",referencedColumnName="ID_INGREDIENT")})
+            inverseJoinColumns = {@JoinColumn(name = "ID_INGREDIENT",referencedColumnName="ID_INGREDIENT")})*/
     public Set<Ingredient> getIngredients(){
         return ingredients;
     }
@@ -110,6 +114,7 @@ public class Recette implements Serializable{
         ingredients = i;
     }
 
+    /*
     @OneToMany(mappedBy="recette",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     public Set<Commande> getCommandes(){
         return commandes;
@@ -126,6 +131,7 @@ public class Recette implements Serializable{
     public void removeCommande(Commande c){
         commandes.remove(c);
     }
+    */
 
     @OneToMany(mappedBy="recette_du_jour",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     public Set<Boutique> getBoutiques(){

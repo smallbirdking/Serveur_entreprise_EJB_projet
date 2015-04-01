@@ -35,7 +35,7 @@ public class Commande implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_COMMANDE",length = 32)
+//    @Column(name = "ID_COMMANDE",length = 32)
     public Long getId() {
         return id;
     }
@@ -84,7 +84,7 @@ public class Commande implements Serializable {
         infoPayment = i;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL})
+   @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_BOUTIQUE")
     public Boutique getBoutique(){
         return boutique;

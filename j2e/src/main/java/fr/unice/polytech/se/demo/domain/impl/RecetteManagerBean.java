@@ -10,6 +10,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Set;
 
 /**
  * Created by user on 31/03/15.
@@ -32,14 +33,18 @@ public class RecetteManagerBean implements RecetteManager {
 
     @Override
     public Recette create(String n, double p) {
-        return null;
+        Recette c = new Recette(n, p);
+        entityManager.persist(c);
+        return c;
     }
 
     @Override
     public Recette addIngredientToRecette(String ingredient, String recette) {
         Ingredient i= im.findByName(ingredient);
-        Recette r = rm.findByName(recette);
-        r.addIngredient(i);
+        Recette r = (Recette) rm.findByName(recette);
+        Set<Ingredient> ingredients = r.getIngredients();
+        ingredients.add(i);
+        r.setIngredients(ingredients);
         entityManager.merge(r);
         //entityManager.merge(i);
         return r;
@@ -47,9 +52,12 @@ public class RecetteManagerBean implements RecetteManager {
 
     @Override
     public Recette deleteIngredientToRecette(String ingredient, String recette) {
-        Ingredient i= im.getIngredientByName(ingredient);
-        Recette r = findByName(recette);
-        r.removeIngredient(i);
+        Ingredient i= im.findByName(ingredient);
+        Recette r =(Recette) rm.findByName(recette);
+        Set<Ingredient> ingredients = r.getIngredients();
+        ingredients.remove(ingredient);
+        r.setIngredients(ingredients);
+        entityManager.merge(r);
         return r;
     }
 

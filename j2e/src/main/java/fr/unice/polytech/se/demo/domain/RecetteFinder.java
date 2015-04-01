@@ -10,7 +10,7 @@ import java.util.List;
 public interface RecetteFinder {
     public Recette findById(int n);
 
-    public List<Recette> findByName(String n);
+    public Recette findByName(String n);
 
     public List<Recette> findByPrix(double p);
 

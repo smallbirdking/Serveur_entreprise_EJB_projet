@@ -26,7 +26,7 @@ public class BoutiqueFinderBean implements BoutiqueFinder {
         CriteriaQuery<Boutique> criteria = builder.createQuery(Boutique.class);
         Root<Boutique> from = criteria.from(Boutique.class);
         criteria.select(from);
-        criteria.where(builder.equal(from.get("id_Boutique"), id));
+        criteria.where(builder.equal(from.get("id"), id));
         TypedQuery<Boutique> query = entityManager.createQuery(criteria.select(criteria
                 .from(Boutique.class)));
         try {

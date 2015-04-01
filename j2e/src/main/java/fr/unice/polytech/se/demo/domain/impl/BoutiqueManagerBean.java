@@ -27,6 +27,8 @@ public class BoutiqueManagerBean implements BoutiqueManager {
     @EJB
     BoutiqueFinder finder;
 
+
+
     @Override
     public Boutique create(Recette recette_du_jour, String addresseBoutique, double tax, Integer chiffreVente) {
         Boutique boutique = finder.findByAddresse(addresseBoutique);
@@ -35,7 +37,7 @@ public class BoutiqueManagerBean implements BoutiqueManager {
             boutique.setAddresseBoutique(addresseBoutique);
             boutique.setChiffreVente(chiffreVente);
             boutique.setTax(tax);
-            boutique.setRecette_du_jour(recette_du_jour);
+            //boutique.setRecette_du_jour(recette_du_jour);
             entityManager.persist(boutique);
         }
         return boutique;

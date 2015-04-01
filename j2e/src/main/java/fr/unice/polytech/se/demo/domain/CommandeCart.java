@@ -1,6 +1,6 @@
 package fr.unice.polytech.se.demo.domain;
 
-import fr.unice.polytech.se.demo.entities.Recette;
+import fr.unice.polytech.se.demo.entities.Commande;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CommandeCart {
 
-    public void addRecette(Recette r);
+    public void addCommande(Commande c);
 
-    public List<Recette> getContents();
+    public List<Commande> getContents();
 }

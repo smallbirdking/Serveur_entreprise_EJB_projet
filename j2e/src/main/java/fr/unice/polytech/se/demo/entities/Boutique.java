@@ -89,9 +89,9 @@ public class Boutique implements Serializable {
     }
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @AssociationTable(table = @Table(name = "BOUTIQUE_PREFERENCE"),
+    /*@AssociationTable(table = @Table(name = "BOUTIQUE_PREFERENCE"),
             joinColumns = {@JoinColumn(name = "ID_BOUTIQUE",referencedColumnName="ID_BOUTIQUE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_PREFERENCE",referencedColumnName="ID_PREFERENCE")})
+            inverseJoinColumns = {@JoinColumn(name = "ID_PREFERENCE",referencedColumnName="ID_PREFERENCE")})*/
     public Set<Preference> getPreferences(){
         return preferences;
     }
