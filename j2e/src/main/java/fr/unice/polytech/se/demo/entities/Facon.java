@@ -41,6 +41,10 @@ public class Facon implements Serializable{
         return id;
     }
 
+    public void setId(Long id){
+        this.id = id;
+    }
+
     @Column(name = "NOM_FACON", length = 32)
     @NotNull
     public String getNom_Facon() {

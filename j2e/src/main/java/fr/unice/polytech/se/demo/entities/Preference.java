@@ -33,6 +33,10 @@ public class Preference implements Serializable{
         return id;
     }
 
+    public void setId(Long id){
+        this.id = id;
+    }
+
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_COMPTE")
     public Compte getCompte(){

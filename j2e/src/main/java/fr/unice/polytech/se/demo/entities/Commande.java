@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by ding on 22/03/15.
@@ -19,6 +20,8 @@ public class Commande implements Serializable {
     private Integer quantite;
 
     private Recette recette;
+
+    private Recette personnalise;
 
     private Boutique boutique;
 
@@ -39,6 +42,10 @@ public class Commande implements Serializable {
 //    @Column(name = "ID_COMMANDE",length = 32)
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public String toString(){
@@ -73,6 +80,19 @@ public class Commande implements Serializable {
 
     public void setRecette(Recette r){
         recette = r;
+    }
+
+    public Recette getPersonnalise(){
+        return personnalise;
+    }
+
+    public void setPersonnalise(String n, Set<Ingredient> i, Set<Facon> f, Integer t, double p){
+        this.personnalise = new Recette();
+        personnalise.setNom_recette(n);
+        personnalise.setIngredients(i);
+        personnalise.setFacons(f);
+        personnalise.setTemps_Utiliser(t);
+        personnalise.setPrix_recette(p);
     }
 
     @OneToOne(cascade = {CascadeType.ALL})

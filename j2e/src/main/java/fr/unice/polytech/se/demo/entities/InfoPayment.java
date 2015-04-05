@@ -41,6 +41,10 @@ public class InfoPayment implements Serializable{
         return id;
     }
 
+    public void setId(Long id){
+        this.id = id;
+    }
+
     @Column(name = "NOM_CLIENT", length = 32)
     @NotNull
     public String getNom_Client(){

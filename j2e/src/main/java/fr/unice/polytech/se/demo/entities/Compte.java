@@ -39,6 +39,10 @@ public class Compte implements Serializable {
         return id;
     }
 
+    public void setId(Long id){
+        this.id = id;
+    }
+
     @Column (name = "CREDIT_CARTE_CADEAU", length = 32)
     @NotNull
     public double getCredit_Carte_Cadeau(){
