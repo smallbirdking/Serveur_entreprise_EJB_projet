@@ -1,0 +1,10 @@
+fr/unice/polytech/se/demo/domain/impl/PetCartBean.class
+fr/unice/polytech/se/demo/entities/PetCard.class
+fr/unice/polytech/se/demo/domain/PetManager.class
+fr/unice/polytech/se/demo/entities/Pet.class
+fr/unice/polytech/se/demo/domain/PetFinder.class
+fr/unice/polytech/se/demo/entities/PetSeller.class
+fr/unice/polytech/se/demo/domain/impl/PetManagerBean.class
+fr/unice/polytech/se/demo/domain/PetCart.class
+fr/unice/polytech/se/demo/domain/impl/PetFinderBean.class
+fr/unice/polytech/se/demo/presentation/PetSellerJsfBean.class

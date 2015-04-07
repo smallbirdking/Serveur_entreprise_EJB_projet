@@ -1,0 +1,50 @@
+<html><head><title>Portail Captif WiFi Universite Nice</title></head><body leftmargin="0" topmargin="0" onload='document.forms[0].pass.value = ""; document.forms[0].user.focus()' style="margin: 0pt;" bgcolor="#ffffff" link="#000000" marginheight="0" marginwidth="0" text="#000000" vlink="#000000">
+
+<!-- LE BANDEAU -->
+
+
+
+<center>
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody><tr>
+  <td style="padding: 20px;" width="100%"><img src="http://sesame.unice.fr/IMG/captiveportal-logo_UNS_couleurs_web.png" title="Accueil" alt="UNS" border="0" height="71" width="110">
+  </td>
+  <td bgcolor="white" width="380"></td>
+
+  <td style="padding: 10px;" width="200" align="right">
+  <img src="http://sesame.unice.fr/IMG/captiveportal-wifi3d.png">
+  </td>
+  </tr>
+  </tbody>
+</table>
+
+<table align="center" bgcolor="khaki" border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody>
+ <td align=center style="font-family: arial,helvetica,sans-serif; font-size: 16px; color: blue;">  Portail WiFi - Unice-HotSpot &nbsp; &nbsp; - &nbsp; &nbsp; S o p h i @ T e c h</td>
+ </tr>
+ </tbody>
+</table>
+
+<form method="post" action="https://t212.wifi.unice.fr:8001/">
+
+<table border="0" cellpadding="3" cellspacing="5" width="810">
+  <tr>
+  <td align="right" width="260"><br><b>Identifiant</b> <input name="auth_user" type="text" size="15" autofocus>
+  <br><b>Mot de Passe</b> <input name="auth_pass" type="password" size="15">
+  <br><br>
+  <input name="redirurl" type="hidden" value="http://download.jetbrains.com/idea/j2ee_libs/JavaEE/6/javax.servlet.jsp.jstl.jar">
+  <input name="accept" value="Valider" type="submit"> <input value="Effacer" type="reset"><br>
+  </td>
+  <td bgcolor="khaki" width="280">Protocoles autoris&eacute;s sur ce campus :<br>
+  <b>http / https / imaps / ipops / lpr / ssh</b><br>et <b>smtp/smtps/submission</b> sur smtp.unice.fr seulement
+  <br></td>
+  <td bgcolor="khaki" width="260"><font color="blue">Chaque connexion est enregistr&eacute;e, et vous &ecirc;tes tenus de respecter la charte de bon usage de l'informatique et des r&eacute;seaux que vous avez sign&eacute;e.</font></td> </tr>
+  <tr><td colspan="4" align="center" style="border-top: 4px solid rgb(240, 228, 140);"><font color="red">Vous &ecirc;tes personnel ou &eacute;tudiant de l'universit&eacute; et vous n'avez pas d'identifiant, cliquez <a href="http://ent.unice.fr">ici</a></font></td> </tr>
+  </td></tr><tr><td colspan="4" align="center" style="border-top: 4px solid rgb(240, 228, 140);">Avec le concours du Conseil G&eacute;n&eacute;ral 06, du Conseil R&eacute;gional et de la Mairie de Nice
+  </td></tr><tr><td colspan="4" align="right" bgcolor="khaki"> © 2007-2015 - Universit&eacute; Nice Sophia Antipolis
+  </td></tr>
+</table>
+</form>
+</center>
+</body>
+</html>
