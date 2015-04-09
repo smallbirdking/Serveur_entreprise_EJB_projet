@@ -21,9 +21,10 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="Pet-pu" transaction-type="JTA">
         <jta-data-source>PetDatabase</jta-data-source>
-        <class>fr.unice.polytech.se.demo.entities.Pet</class>
-        <class>fr.unice.polytech.se.demo.entities.PetCard</class>
-        <class>fr.unice.polytech.se.demo.entities.PetSeller</class>
+        <class>fr.unice.polytech.tcf.entities.Pet</class>
+        <class>fr.unice.polytech.tcf.entities.PetCard</class>
+        <class>fr.unice.polytech.tcf.entities.PetSeller</class>
+        <class>fr.unice.polytech.tcf.entities.Boutique</class>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
