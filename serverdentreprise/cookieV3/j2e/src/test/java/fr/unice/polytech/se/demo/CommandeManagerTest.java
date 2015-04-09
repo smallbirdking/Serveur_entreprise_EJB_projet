@@ -54,7 +54,7 @@ public class CommandeManagerTest {
     public void testCreation()  {
         Recette recette = managerR.create("Chocolate", 10, 10);
         Boutique boutique = manager.create(recette,"Polytech",100,10);
-        //Recette recette=new Recette("Chocolate",10,10);
+        //Recette recette=new Recette("Chocolate",10,10); B
 
        // Recette recette= finderR.findByName("Chocolect");
 
