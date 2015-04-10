@@ -9,6 +9,7 @@ import fr.unice.polytech.se.demo.domain.BoutiqueFinder;
 import fr.unice.polytech.se.demo.domain.BoutiqueManager;
 import fr.unice.polytech.se.demo.domain.RecetteFinder;
 import fr.unice.polytech.se.demo.entities.Boutique;
+import fr.unice.polytech.se.demo.entities.HoraireAtlier;
 import fr.unice.polytech.se.demo.entities.Recette;
 
 import javax.ejb.EJB;
@@ -46,6 +47,31 @@ public class BoutiqueManagerBean implements BoutiqueManager {
             }else{
 
                 boutique.setRecette_du_jour(recette_du_jour);
+                entityManager.persist(boutique);
+            }
+        }
+        return boutique;
+    }
+
+    @Override
+    public Boutique create(String addresseBoutique, double tax, Integer chiffreVente,int  tempsO,int tempsF) {
+        HoraireAtlier horaireAtlier=new HoraireAtlier();
+        horaireAtlier.setDebutJour(tempsO);
+        horaireAtlier.setFinJour(tempsF);
+        Boutique boutique = finder.findByAddresse(addresseBoutique);
+        Recette recette = finderR.findByName("default");
+        if (boutique == null) {
+            boutique = new Boutique();
+            boutique.setAddresseBoutique(addresseBoutique);
+            boutique.setChiffreVente(chiffreVente);
+            boutique.setTax(tax);
+            boutique.setHoraireAtlier(horaireAtlier);
+            if (recette == null){
+                boutique.setRecette_du_jour(new Recette("default",0,0));
+                entityManager.persist(boutique);
+            }else{
+
+                boutique.setRecette_du_jour(recette);
                 entityManager.persist(boutique);
             }
         }

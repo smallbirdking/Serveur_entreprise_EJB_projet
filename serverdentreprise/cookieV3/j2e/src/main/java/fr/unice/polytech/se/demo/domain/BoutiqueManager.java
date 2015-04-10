@@ -8,4 +8,5 @@ import fr.unice.polytech.se.demo.entities.Recette;
  */
 public interface BoutiqueManager {
     public Boutique create(Recette recette_du_jour, String addresseBoutique, double tax, Integer chiffreVente);
+    public Boutique create(String addresseBoutique, double tax, Integer chiffreVente, int tempsOuv, int tempsFer);
 }
